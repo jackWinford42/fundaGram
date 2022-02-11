@@ -1,1 +1,1 @@
-# fundaGram
+# fundamental Secrets Instagram Clone (fundaGram)
