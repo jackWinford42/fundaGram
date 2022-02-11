@@ -1,0 +1,26 @@
+.authButton {
+    margin: 0 auto;
+}
+
+#bottomInput {
+    margin-bottom: 25px;
+}
+
+label {
+    font-weight: bold;
+    float: left;
+}
+
+.LoginForm {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.SignupForm {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
