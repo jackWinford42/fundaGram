@@ -17,9 +17,9 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     console.log('Connected to Database')
     db = client.db('fundaGram')
     module.exports.db = db 
-    console.log(db);
+    //console.log(db);
     usersCol = db.collection('users')
-    console.log(usersCol);
+    //console.log(usersCol);
     postsCol = db.collection('posts')
 
     app.set('view engine', 'ejs')

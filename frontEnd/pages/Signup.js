@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Api from "./Api.js";
+import { useRouter } from 'next/router';
 //import "./formStyles.css"
 
 /** Sign up form for getting the username, password, first name,
@@ -9,6 +10,7 @@ import Api from "./Api.js";
  */
 export default function Signup({ signup }) {
   console.debug("Sign up form");
+  const router = useRouter()
 
   const [formData, setFormData] = useState({
     username:"",
@@ -23,11 +25,14 @@ export default function Signup({ signup }) {
     //send the form data to app's signup function
     const res = await Api.signup(formData)
 
+    console.log(res);
+    router.push('/Home');
     if (res.worked) {
-      //store the path in redux store so home can display a pop-up
-      await dispatch({type: "LOCATION_CHANGE", location: "/sign-up"})
-      history.push("/home");
-    } else setErrors(res.errors);
+      router.push('/Home');
+    } else {
+      console.log(res);
+      setErrors(res.errors);
+    }
   }
 
   // Update form data to reflect change in form fields
@@ -79,8 +84,8 @@ export default function Signup({ signup }) {
                 sign up
               </button>
             </form>
-            {errors.length > 0 && 
-            errors.map(error => <Alert color="danger" key={error}>{error}</Alert>)}
+            {/*errors.length > 0 && 
+            errors.map(error => <Alert color="danger" key={error}>{error}</Alert>)*/}
           </div>
         </div>
       </div>

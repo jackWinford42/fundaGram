@@ -37,7 +37,8 @@ class API {
 
   static async signup(data) {
     let res = await this.request("auth/register", data, "post");
-    return res.token;
+    console.log("result in API" + res)
+    return res;
   }
 
   static async login(data) {

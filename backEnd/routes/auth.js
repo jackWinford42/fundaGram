@@ -40,12 +40,13 @@ router.post("/token", async function (req, res, next) {
 router.post("/register", async function (req, res, next) {
   try {
     console.log(db);
-    db.collection('users').insertOne({ ...req.body})
+    db.collection('users').insertOne({...req.body})
       .then(newUser => {
         console.log("inserted without an error!")
         console.log(newUser);
         const token = createToken(newUser);
-        return res.status(201).json({ token });
+        console.log(token)
+        return res.status(201).json({ ...token, worked: true });
       })
       .catch(error => console.error(error))
   } catch (err) {
