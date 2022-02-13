@@ -44,6 +44,16 @@ class API {
     let res = await this.request("auth/token", data, "post");
     return res;
   }
+
+  static async post(data) {
+    let res = await this.request("post/create", data, "post");
+    return res;
+  }
+  
+  static async fetchPosts(data) {
+    let res = await this.request("post/fetch");
+    return res;
+  }
 }
 
 export default API;

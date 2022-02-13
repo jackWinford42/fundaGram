@@ -17,11 +17,12 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     console.log('Connected to Database')
     db = client.db('fundaGram')
     module.exports.db = db 
-    //console.log(db);
+
     usersCol = db.collection('users')
     module.exports.usersCollection = usersCol;
-    //console.log(usersCol);
+
     postsCol = db.collection('posts')
+    module.exports.postsCollection = postsCol;
 
     app.set('view engine', 'ejs')
     app.use(bodyParser.urlencoded({ extended: true }))
@@ -30,11 +31,12 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     app.use(cors());
 
     const authRoute = require("./routes/auth")
+    const postRoute = require("./routes/post")
 
     app.use("/auth", authRoute);
+    app.use("/post", postRoute);
 })
 .catch(console.error)
 
-//console.log("second log of db" + db);
 module.exports.app = app;
 
