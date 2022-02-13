@@ -1,5 +1,28 @@
 .feed {}
 
+.thumb {
+  width: 30px;
+  color: grey;
+  position: absolute;
+  right: 5px;
+}
+
+.thumb:hover {
+  cursor: pointer;
+  filter: drop-shadow(0 0 3px #0275d8);
+}
+
+.likedThumb {
+  width: 30px;
+  color: #0275d8;
+  position: absolute;
+  right: 5px;
+}
+
+.likedThumb:hover {
+  cursor: pointer;
+  filter: drop-shadow(0 0 3px grey);
+}
 
 .topnav {
   width: 100vw;

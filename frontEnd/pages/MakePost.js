@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import Api from './Api.js'
+import { Button } from 'react-bootstrap';
 import 'reactjs-popup/dist/index.css';
 import { useRouter } from "next/router";
 
@@ -13,7 +14,7 @@ export default function MakePost() {
 
   const [formData, setFormData] = useState({
     url:"",
-    comment:"",
+    description:"",
     location:""
   });
   const [errors, setErrors] = useState([]);
@@ -44,25 +45,25 @@ export default function MakePost() {
           value={formData.url}
           onChange={handleChange}
         />
-        <label>Comment:</label>
+        <label>Description:</label>
         <input
           className="form-control form-control-md"
-          name="comment"
-          placeholder="I had a great day at the Whitehouse!"
-          value={formData.comment}
+          name="description"
+          placeholder="Check it out!"
+          value={formData.description}
           onChange={handleChange}
         />
         <label>Location:</label>
         <input
           className="form-control form-control-md"
           name="location"
-          placeholder="123 Whitehouse rd."
+          placeholder="123 Whitehouse st."
           value={formData.location}
           onChange={handleChange}
         />
-        <button className="authButton" onClick={handleSubmit}>
+        <Button onClick={handleSubmit}>
           Post It!
-        </button>
+        </Button>
       </form>
     </div>
   )

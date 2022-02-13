@@ -42,7 +42,6 @@ export default function Home() {
           <Link href="/Profile"><a>Profile</a></Link>
           <Link href="/MakePost"><a>Make A Post</a></Link>
         </div>
-        <h1>TEST</h1>
         <div>
           {posts ? (posts.map(post => <Post data={post}/>)) : 
           <span>Nobody has posted anything or the database is inaccessible</span>}

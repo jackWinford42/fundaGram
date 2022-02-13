@@ -38,7 +38,8 @@ router.get("/fetch", async function (req, res, next) {
 
 router.post("/create", async function (req, res, next) {
   try {
-    db.collection('posts').insertOne({...req.body})
+    const postItem = {likes: 0, comments: [], ...req.body}
+    db.collection('posts').insertOne(postItem)
       .then(newPost => {
         console.log("inserted without an error!")
         console.log(newPost);
