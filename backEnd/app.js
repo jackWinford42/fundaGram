@@ -19,6 +19,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     module.exports.db = db 
     //console.log(db);
     usersCol = db.collection('users')
+    module.exports.usersCollection = usersCol;
     //console.log(usersCol);
     postsCol = db.collection('posts')
 
@@ -31,7 +32,6 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     const authRoute = require("./routes/auth")
 
     app.use("/auth", authRoute);
-    module.exports.usersCollection = usersCol;
 })
 .catch(console.error)
 

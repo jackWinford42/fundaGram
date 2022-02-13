@@ -37,13 +37,12 @@ class API {
 
   static async signup(data) {
     let res = await this.request("auth/register", data, "post");
-    console.log("result in API" + res)
     return res;
   }
 
   static async login(data) {
     let res = await this.request("auth/token", data, "post");
-    return res.token;
+    return res;
   }
 }
 

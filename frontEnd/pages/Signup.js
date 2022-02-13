@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Api from "./Api.js";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 //import "./formStyles.css"
 
 /** Sign up form for getting the username, password, first name,

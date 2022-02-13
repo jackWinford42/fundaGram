@@ -18,9 +18,8 @@ export default function Home() {
           <Link href="/"><a>Home</a></Link>
           <Link href="/Profile"><a>Profile</a></Link>
         </div>
-        <h1 className={styles.title}>
-          Welcome to fundaGram!
-        </h1>
+        <div className={styles.feed}>
+        </div>
       </main>
       <footer className={styles.footer}>
       </footer>
