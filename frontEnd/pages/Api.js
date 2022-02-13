@@ -52,7 +52,8 @@ class API {
   
   static async fetchPosts(data) {
     let res = await this.request("post/fetch");
-    return res;
+    console.log(res.posts);
+    return res.posts;
   }
 }
 

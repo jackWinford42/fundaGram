@@ -19,9 +19,8 @@ const { BadRequestError } = require("../expressError");
 
 router.get("/fetch", async function (req, res, next) {
   try {
-    const posts = await postsCollection.find();
-    console.log(posts);
-    return res.json({ posts });
+    const posts = await postsCollection.find({}).toArray();
+    return res.json({ posts: posts });
   } catch (err) {
     return next(err);
   }
