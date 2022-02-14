@@ -7,6 +7,7 @@ import { Button } from 'react-bootstrap';
 import { useRouter } from "next/router";
 import styles from '../styles/Home.module.css'
 
+//Page that displays and handles the form and for adding a post. 
 export default function MakePost() {
   const router = useRouter()
 

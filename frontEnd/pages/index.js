@@ -4,6 +4,7 @@ import { Button } from "react-bootstrap"
 import styles from '../styles/Home.module.css'
 import { useRouter } from "next/router";
 
+//A landing page with a greeting and buttons to navigate to the auth pages
 export default function Landing() {
   const router = useRouter()
 

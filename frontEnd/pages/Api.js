@@ -65,6 +65,8 @@ class API {
     return res;
   }
 
+  //THE FOLLOWING TWO ROUTES WOULD BE USED FOR THE PROFILE PAGE
+  //AT THE MOMENT THEY ARE NOT USED BY ANY PART OF THE APP
   static async fetchUser(data) {
     let res = await this.request("user");
     return res;

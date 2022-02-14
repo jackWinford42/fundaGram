@@ -21,7 +21,6 @@ router.post("/token", async function (req, res, next) {
   try {
     const { username, password } = req.body;
     const user = await usersCollection.findOne({ username, password });
-    console.log(user);
     const token = createToken(user);
     return res.json({ token });
   } catch (err) {
@@ -41,13 +40,9 @@ router.post("/token", async function (req, res, next) {
 
 router.post("/register", async function (req, res, next) {
   try {
-    console.log(db);
     db.collection('users').insertOne({...req.body})
       .then(newUser => {
-        console.log("inserted without an error!")
-        console.log(newUser);
         const token = createToken(newUser);
-        console.log(token)
         return res.status(201).json({ ...token, worked: true });
       })
       .catch(error => console.error(error))

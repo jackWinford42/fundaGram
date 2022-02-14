@@ -1,22 +1,24 @@
 import React, { useEffect, useState } from "react";
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
-//import "../styles/Profile.css"
 
+//THIS PAGE IS UNDER CONSTRUCTION
+//The profile page would display information about the user including their picture
+//and posting history.
 export default function Profile() {
   const [user, setUser] = useState({});
 
-  useEffect(() => {
-    async function getUser() {
-      try {
-        let user = await Api.fetchUser();
-        setUser(user);
-      } catch (err) {
-        console.error("getPosts: issue loading posts collection", err);
-      }
-    }
-    getUser()
-  }, [])
+//  useEffect(() => {
+//    async function getUser() {
+//      try {
+//        let user = await Api.fetchUser();
+//        setUser(user);
+//      } catch (err) {
+//        console.error("getPosts: issue loading posts collection", err);
+//      }
+//    }
+//    getUser()
+//  }, [])
 
   return (
     <div className="Profile">
