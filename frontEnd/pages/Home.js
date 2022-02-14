@@ -43,7 +43,7 @@ export default function Home() {
           <Link href="/MakePost"><a>Make A Post</a></Link>
         </div>
         <div>
-          {posts ? (posts.map(post => <Post data={post} setUpdate={setUpdate} key={post._id}/>)) : 
+          {posts ? (posts.map(post => <Post data={post} setUpdate={setUpdate} update={update} key={post._id}/>)) : 
           <span>Nobody has posted anything or the database is inaccessible</span>}
         </div>
       </main>

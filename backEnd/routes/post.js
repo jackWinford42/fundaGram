@@ -49,7 +49,7 @@ router.post("/create", async function (req, res, next) {
   }
 });
 
-/** POST /post/comment:   { post_id } => { }
+/** POST /post/comment:   { post_id, comment } => { }
  *
  * post information should include { the post that was commented on }
  *
@@ -60,17 +60,18 @@ router.post("/create", async function (req, res, next) {
 
 router.post("/comment", async function (req, res, next) {
   try {
-    console.log(req.body.id);
     let ObjectId = require('mongodb').ObjectId;
-    const commentId = new ObjectId(req.body.id);
-    const filter = { _id: commentId }
+    const postId = new ObjectId(req.body.id);
+    const filter = { _id: postId }
+
     const updateDoc = {
       $set: {
         comments: [...req.body.prevComments, req.body.comment] 
       },
     };
+
     const result = await postsCollection.updateOne(filter, updateDoc);
-    console.log("successfully added a comment")
+
     console.log(result.matchedCount)
     console.log(result.modifiedCount);
     return res.status(201).json({ });
@@ -90,14 +91,18 @@ router.post("/comment", async function (req, res, next) {
 
 router.post("/like", async function (req, res, next) {
   try {
-    const filter = { id: req.body.id }
+    let ObjectId = require('mongodb').ObjectId;
+    const postId = new ObjectId(req.body.id);
+    const filter = { _id: postId }
+
     const updateDoc = {
       $set: {
-        comments: [...req.body.prevComments, req.body.comment] 
+        likes: req.body.newNum 
       },
     };
+
     const result = await postsCollection.updateOne(filter, updateDoc);
-    console.log("successfully added a comment")
+
     console.log(result.matchedCount)
     console.log(result.modifiedCount);
     return res.status(201).json({ });
@@ -105,4 +110,5 @@ router.post("/like", async function (req, res, next) {
     return next(err);
   }
 });
+
 module.exports = router;

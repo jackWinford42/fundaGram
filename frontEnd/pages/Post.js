@@ -9,7 +9,7 @@ import { faThumbsUp } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { v4 as uuidv4 } from 'uuid';
 
-export default function Post({data, setUpdate}) {
+export default function Post({data, setUpdate, update}) {
   console.log(data);
   const [liked, setLiked] = useState(false);
   const [formData, setFormData] = useState({
@@ -18,12 +18,13 @@ export default function Post({data, setUpdate}) {
 
   const thumbColor = () => {
     setLiked(!liked)
+    like();
   }
 
   async function handleSubmit(evt) {
     evt.preventDefault();
     await Api.writeComment({comment: formData.comment, id: data._id, prevComments: data.comments}) 
-    setUpdate(true);
+    setUpdate(!update);
     console.log("ADDED A COMMENT");
   }
 
@@ -32,8 +33,13 @@ export default function Post({data, setUpdate}) {
     setFormData(data => ({ ...data, [name]: value }));
   }
 
-  const like = (evt) => {
+  async function like() {
     console.log("liked/unliked post")
+    const newNum = liked ? data.likes - 1 : data.likes + 1;
+    console.log(newNum)
+    await Api.likePost({id: data._id, newNum: newNum});
+    setUpdate(!update);
+    console.log("did a like increment");
   }
 
   return (
@@ -42,8 +48,8 @@ export default function Post({data, setUpdate}) {
       <Card.Body>
         <span>{data.description}</span><br></br>
         <div className={styles.likeSpan}>
-          {liked ? (<FontAwesomeIcon className={styles.thumb} icon={faThumbsUp} onClick={thumbColor}/>) :
-          (<FontAwesomeIcon className={styles.likedThumb} icon={faThumbsUp} onClick={thumbColor}/>)}     
+          {liked ? (<FontAwesomeIcon className={styles.likedThumb} icon={faThumbsUp} onClick={thumbColor}/>) :
+          (<FontAwesomeIcon className={styles.thumb} icon={faThumbsUp} onClick={thumbColor}/>)}     
           <span className={styles.likeCount}>{data.likes}</span>
         </div><br></br>
         {data.location ? (<span>Location: {data.location}</span>) : null }
