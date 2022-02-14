@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import styles from '../styles/Home.module.css'
+import Link from 'next/link'
 //import "../styles/Profile.css"
 
 export default function Profile({logout}) {
@@ -49,6 +51,11 @@ export default function Profile({logout}) {
   if (isLoading) return <p>Loading &hellip;</p>;
   return (
     <div className="Profile">
+      <div className={styles.topnav}>
+        <Link href="/"><a>Home</a></Link>
+        <Link href="/Profile"><a>Profile</a></Link>
+        <Link href="/MakePost"><a>Make A Post</a></Link>
+      </div>
       <div id="title">
         <h1>Profile Page</h1>
       </div>

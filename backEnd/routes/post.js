@@ -41,8 +41,6 @@ router.post("/create", async function (req, res, next) {
     const postItem = {likes: 0, comments: [], ...req.body}
     db.collection('posts').insertOne(postItem)
       .then(newPost => {
-        console.log("inserted without an error!")
-        console.log(newPost);
         return res.status(201).json({ newPost });
       })
       .catch(error => console.error(error))
@@ -51,4 +49,60 @@ router.post("/create", async function (req, res, next) {
   }
 });
 
+/** POST /post/comment:   { post_id } => { }
+ *
+ * post information should include { the post that was commented on }
+ *
+ * Returns nothing
+ *
+ * Authorization required: none
+ */
+
+router.post("/comment", async function (req, res, next) {
+  try {
+    console.log(req.body.id);
+    let ObjectId = require('mongodb').ObjectId;
+    const commentId = new ObjectId(req.body.id);
+    const filter = { _id: commentId }
+    const updateDoc = {
+      $set: {
+        comments: [...req.body.prevComments, req.body.comment] 
+      },
+    };
+    const result = await postsCollection.updateOne(filter, updateDoc);
+    console.log("successfully added a comment")
+    console.log(result.matchedCount)
+    console.log(result.modifiedCount);
+    return res.status(201).json({ });
+  } catch (err) {
+    return next(err);
+  }
+});
+
+/** POST /post/like:   { post_id } => { }
+ *
+ * post information should include { the post that was liked }
+ *
+ * Returns nothing
+ *
+ * Authorization required: none
+ */
+
+router.post("/like", async function (req, res, next) {
+  try {
+    const filter = { id: req.body.id }
+    const updateDoc = {
+      $set: {
+        comments: [...req.body.prevComments, req.body.comment] 
+      },
+    };
+    const result = await postsCollection.updateOne(filter, updateDoc);
+    console.log("successfully added a comment")
+    console.log(result.matchedCount)
+    console.log(result.modifiedCount);
+    return res.status(201).json({ });
+  } catch (err) {
+    return next(err);
+  }
+});
 module.exports = router;

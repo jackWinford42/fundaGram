@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import 'reactjs-popup/dist/index.css';
 import Post from './Post.js'
 import Api from './Api.js'
 
@@ -11,6 +10,7 @@ import styles from '../styles/Home.module.css'
 export default function Home() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [update, setUpdate] = useState(false);
 
   useEffect(() => {
     async function getPosts() {
@@ -26,7 +26,7 @@ export default function Home() {
     setLoading(true);
     getPosts()
     setLoading(false);
-  }, [])
+  }, [update])
 
   return (
     <div className={styles.container}>
@@ -43,7 +43,7 @@ export default function Home() {
           <Link href="/MakePost"><a>Make A Post</a></Link>
         </div>
         <div>
-          {posts ? (posts.map(post => <Post data={post}/>)) : 
+          {posts ? (posts.map(post => <Post data={post} setUpdate={setUpdate} key={post._id}/>)) : 
           <span>Nobody has posted anything or the database is inaccessible</span>}
         </div>
       </main>

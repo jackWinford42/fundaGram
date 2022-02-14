@@ -1,10 +1,21 @@
 .feed {}
 
+.likeSpan {
+  position: absolute;
+  right: 0px;
+  top: 400px;
+  width: 60px;
+  border: solid;
+}
+
+.likeCount {
+  position: absolute;
+  right: 0px;
+}
+
 .thumb {
   width: 30px;
   color: grey;
-  position: absolute;
-  right: 5px;
 }
 
 .thumb:hover {
@@ -15,8 +26,6 @@
 .likedThumb {
   width: 30px;
   color: #0275d8;
-  position: absolute;
-  right: 5px;
 }
 
 .likedThumb:hover {

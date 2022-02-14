@@ -36,6 +36,92 @@ export default function MakePost() {
 
   return (
     <div className="MakePost">
+    <div className={styles.topnav}>
+      <Link href="/"><a>Home</a></Link>
+      <Link href="/Profile"><a>Profile</a></Link>
+      <Link href="/MakePost"><a>Make A Post</a></Link>
+    </div>
+       <div className={styles.topnav}>
+          <Link href="/"><a>Home</a></Link>
+          <Link href="/Profile"><a>Profile</a></Link>
+          <Link href="/MakePost"><a>Make A Post</a></Link>
+        </div>
+       <div className={styles.topnav}>
+          <Link href="/"><a>Home</a></Link>
+          <Link href="/Profile"><a>Profile</a></Link>
+          <Link href="/MakePost"><a>Make A Post</a></Link>
+        </div>
+       <div className={styles.topnav}>
+          <Link href="/"><a>Home</a></Link>
+          <Link href="/Profile"><a>Profile</a></Link>
+          <Link href="/MakePost"><a>Make A Post</a></Link>
+        </div>
+       <div className={styles.topnav}>
+          <Link href="/"><a>Home</a></Link>
+          <Link href="/Profile"><a>Profile</a></Link>
+          <Link href="/MakePost"><a>Make A Post</a></Link>
+        </div>
+       <div className={styles.topnav}>
+          <Link href="/"><a>Home</a></Link>
+          <Link href="/Profile"><a>Profile</a></Link>
+          <Link href="/MakePost"><a>Make A Post</a></Link>
+        </div>
+       <div className={styles.topnav}>
+          <Link href="/"><a>Home</a></Link>
+          <Link href="/Profile"><a>Profile</a></Link>
+          <Link href="/MakePost"><a>Make A Post</a></Link>
+        </div>
+       <div className={styles.topnav}>
+          <Link href="/"><a>Home</a></Link>
+          <Link href="/Profile"><a>Profile</a></Link>
+          <Link href="/MakePost"><a>Make A Post</a></Link>
+        </div>
+       <div className={styles.topnav}>
+          <Link href="/"><a>Home</a></Link>
+          <Link href="/Profile"><a>Profile</a></Link>
+          <Link href="/MakePost"><a>Make A Post</a></Link>
+        </div>
+       <div className={styles.topnav}>
+          <Link href="/"><a>Home</a></Link>
+          <Link href="/Profile"><a>Profile</a></Link>
+          <Link href="/MakePost"><a>Make A Post</a></Link>
+        </div>
+       <div className={styles.topnav}>
+          <Link href="/"><a>Home</a></Link>
+          <Link href="/Profile"><a>Profile</a></Link>
+          <Link href="/MakePost"><a>Make A Post</a></Link>
+        </div>
+       <div className={styles.topnav}>
+          <Link href="/"><a>Home</a></Link>
+          <Link href="/Profile"><a>Profile</a></Link>
+          <Link href="/MakePost"><a>Make A Post</a></Link>
+        </div>
+       <div className={styles.topnav}>
+          <Link href="/"><a>Home</a></Link>
+          <Link href="/Profile"><a>Profile</a></Link>
+          <Link href="/MakePost"><a>Make A Post</a></Link>
+        </div>
+       <div className={styles.topnav}>
+          <Link href="/"><a>Home</a></Link>
+          <Link href="/Profile"><a>Profile</a></Link>
+          <Link href="/MakePost"><a>Make A Post</a></Link>
+        </div>
+       <div className={styles.topnav}>
+          <Link href="/"><a>Home</a></Link>
+          <Link href="/Profile"><a>Profile</a></Link>
+          <Link href="/MakePost"><a>Make A Post</a></Link>
+        </div>
+       <div className={styles.topnav}>
+          <Link href="/"><a>Home</a></Link>
+          <Link href="/Profile"><a>Profile</a></Link>
+          <Link href="/MakePost"><a>Make A Post</a></Link>
+        </div>
+       <div className={styles.topnav}>
+          <Link href="/"><a>Home</a></Link>
+          <Link href="/Profile"><a>Profile</a></Link>
+          <Link href="/MakePost"><a>Make A Post</a></Link>
+        </div>
+
       <form className="form-inline" onSubmit={handleSubmit}>
         <label>Image Url:</label>
         <input
