@@ -38,7 +38,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <div className={styles.topnav}>
-          <Link href="/"><a>Home</a></Link>
+          <Link href="/Home"><a>Home</a></Link>
           <Link href="/Profile"><a>Profile</a></Link>
           <Link href="/MakePost"><a>Make A Post</a></Link>
         </div>

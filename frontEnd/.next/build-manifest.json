@@ -15,15 +15,15 @@
     "static/development/_middlewareManifest.js"
   ],
   "pages": {
+    "/": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/index.js"
+    ],
     "/Home": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/Home.js"
-    ],
-    "/MakePost": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/MakePost.js"
     ],
     "/Profile": [
       "static/chunks/webpack.js",
