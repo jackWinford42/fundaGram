@@ -4,9 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Api from './Api.js'
 import { Button } from 'react-bootstrap';
-import 'reactjs-popup/dist/index.css';
 import { useRouter } from "next/router";
-
 import styles from '../styles/Home.module.css'
 
 export default function MakePost() {
@@ -36,121 +34,41 @@ export default function MakePost() {
 
   return (
     <div className="MakePost">
-    <div className={styles.topnav}>
-      <Link href="/"><a>Home</a></Link>
-      <Link href="/Profile"><a>Profile</a></Link>
-      <Link href="/MakePost"><a>Make A Post</a></Link>
-    </div>
-       <div className={styles.topnav}>
-          <Link href="/"><a>Home</a></Link>
-          <Link href="/Profile"><a>Profile</a></Link>
-          <Link href="/MakePost"><a>Make A Post</a></Link>
-        </div>
-       <div className={styles.topnav}>
-          <Link href="/"><a>Home</a></Link>
-          <Link href="/Profile"><a>Profile</a></Link>
-          <Link href="/MakePost"><a>Make A Post</a></Link>
-        </div>
-       <div className={styles.topnav}>
-          <Link href="/"><a>Home</a></Link>
-          <Link href="/Profile"><a>Profile</a></Link>
-          <Link href="/MakePost"><a>Make A Post</a></Link>
-        </div>
-       <div className={styles.topnav}>
-          <Link href="/"><a>Home</a></Link>
-          <Link href="/Profile"><a>Profile</a></Link>
-          <Link href="/MakePost"><a>Make A Post</a></Link>
-        </div>
-       <div className={styles.topnav}>
-          <Link href="/"><a>Home</a></Link>
-          <Link href="/Profile"><a>Profile</a></Link>
-          <Link href="/MakePost"><a>Make A Post</a></Link>
-        </div>
-       <div className={styles.topnav}>
-          <Link href="/"><a>Home</a></Link>
-          <Link href="/Profile"><a>Profile</a></Link>
-          <Link href="/MakePost"><a>Make A Post</a></Link>
-        </div>
-       <div className={styles.topnav}>
-          <Link href="/"><a>Home</a></Link>
-          <Link href="/Profile"><a>Profile</a></Link>
-          <Link href="/MakePost"><a>Make A Post</a></Link>
-        </div>
-       <div className={styles.topnav}>
-          <Link href="/"><a>Home</a></Link>
-          <Link href="/Profile"><a>Profile</a></Link>
-          <Link href="/MakePost"><a>Make A Post</a></Link>
-        </div>
-       <div className={styles.topnav}>
-          <Link href="/"><a>Home</a></Link>
-          <Link href="/Profile"><a>Profile</a></Link>
-          <Link href="/MakePost"><a>Make A Post</a></Link>
-        </div>
-       <div className={styles.topnav}>
-          <Link href="/"><a>Home</a></Link>
-          <Link href="/Profile"><a>Profile</a></Link>
-          <Link href="/MakePost"><a>Make A Post</a></Link>
-        </div>
-       <div className={styles.topnav}>
-          <Link href="/"><a>Home</a></Link>
-          <Link href="/Profile"><a>Profile</a></Link>
-          <Link href="/MakePost"><a>Make A Post</a></Link>
-        </div>
-       <div className={styles.topnav}>
-          <Link href="/"><a>Home</a></Link>
-          <Link href="/Profile"><a>Profile</a></Link>
-          <Link href="/MakePost"><a>Make A Post</a></Link>
-        </div>
-       <div className={styles.topnav}>
-          <Link href="/"><a>Home</a></Link>
-          <Link href="/Profile"><a>Profile</a></Link>
-          <Link href="/MakePost"><a>Make A Post</a></Link>
-        </div>
-       <div className={styles.topnav}>
-          <Link href="/"><a>Home</a></Link>
-          <Link href="/Profile"><a>Profile</a></Link>
-          <Link href="/MakePost"><a>Make A Post</a></Link>
-        </div>
-       <div className={styles.topnav}>
-          <Link href="/"><a>Home</a></Link>
-          <Link href="/Profile"><a>Profile</a></Link>
-          <Link href="/MakePost"><a>Make A Post</a></Link>
-        </div>
-       <div className={styles.topnav}>
-          <Link href="/"><a>Home</a></Link>
-          <Link href="/Profile"><a>Profile</a></Link>
-          <Link href="/MakePost"><a>Make A Post</a></Link>
-        </div>
-
-      <form className="form-inline" onSubmit={handleSubmit}>
-        <label>Image Url:</label>
-        <input
-          className="form-control form-control-md"
-          name="url"
-          placeholder="http://example.jpg"
-          value={formData.url}
-          onChange={handleChange}
-        />
-        <label>Description:</label>
-        <input
-          className="form-control form-control-md"
-          name="description"
-          placeholder="Check it out!"
-          value={formData.description}
-          onChange={handleChange}
-        />
-        <label>Location:</label>
-        <input
-          className="form-control form-control-md"
-          name="location"
-          placeholder="123 Whitehouse st."
-          value={formData.location}
-          onChange={handleChange}
-        />
-        <Button onClick={handleSubmit}>
-          Post It!
-        </Button>
-      </form>
+      <div className={styles.topnav}>
+        <Link href="/Home"><a>Home</a></Link>
+        <Link href="/MakePost"><a>Make A Post</a></Link>
+      </div>
+      <div className={styles.main}>
+        <form className="form-inline" onSubmit={handleSubmit}>
+          <label>Image Url:</label>
+          <input
+            className="form-control form-control-md"
+            name="url"
+            placeholder="http://example.jpg"
+            value={formData.url}
+            onChange={handleChange}
+          />
+          <label>Description:</label>
+          <input
+            className="form-control form-control-md"
+            name="description"
+            placeholder="Check it out!"
+            value={formData.description}
+            onChange={handleChange}
+          />
+          <label>Location:</label>
+          <input
+            className="form-control form-control-md"
+            name="location"
+            placeholder="123 Whitehouse st."
+            value={formData.location}
+            onChange={handleChange}
+          />
+          <Button onClick={handleSubmit}>
+            Post It!
+          </Button>
+        </form>
+      </div>
     </div>
   )
 }

@@ -1,4 +1,16 @@
-.feed {}
+.authForm {
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 10rem;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.post {
+  margin-bottom: 2rem;
+}
 
 .likeSpan {
   position: absolute;
@@ -40,11 +52,15 @@
 }
 
 .topnav a {
-  float: left;
+  float: right;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
+}
+
+.topnav h2 {
+  float: left;
 }
 
 /* Change the color of links on hover */

@@ -64,6 +64,16 @@ class API {
     let res = await this.request("post/comment", data, "post");
     return res;
   }
+
+  static async fetchUser(data) {
+    let res = await this.request("user");
+    return res;
+  }
+
+  static async deleteUser(data) {
+    let res = await this.request("user", data, );
+    return res;
+  }
 }
 
 export default API;

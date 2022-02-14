@@ -3,52 +3,21 @@ import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 //import "../styles/Profile.css"
 
-export default function Profile({logout}) {
-  const [isLoading, setIsLoading] = useState(false);
-  const [empty, setEmpty] = useState(true);
-  const [displayHistory, setDisplayHistory] = useState({});
-  const [open, setOpen] = useState(false);
+export default function Profile() {
+  const [user, setUser] = useState({});
 
-//  useEffect(() => {
-//    async function getHistory() {
-//      try {
-//        const userHistory = await RamtApi.getUserHistory(user.email);
-//        setDisplayHistory(userHistory)
-//        setEmpty(false);
-//      } catch (err) {
-//        console.error("UserHistory get: issue loading history", err);
-//      }
-//    }
-//    setIsLoading(true);
-//    if (empty) getHistory()
-//    setIsLoading(false);
-//  }, [empty, user])
+  useEffect(() => {
+    async function getUser() {
+      try {
+        let user = await Api.fetchUser();
+        setUser(user);
+      } catch (err) {
+        console.error("getPosts: issue loading posts collection", err);
+      }
+    }
+    getUser()
+  }, [])
 
-  const goToEdit = () => {
-    let path = `/edit-profile`; 
-    history.push(path);
-  }
-
-  const deleteUser = () => {
-    RamtApi.delCurrUser(user.email)
-    history.push("/");
-    logout();
-  }
-
-  const handleOpen = () => {
-    setOpen(true)
-  };
-
-  const handleClose = () => {
-    setOpen(false)
-  };
-
-  const dumpHistory = () => {
-    RamtApi.dumpUserHistory(user.email);
-    setEmpty(true);
-  }
-
-  if (isLoading) return <p>Loading &hellip;</p>;
   return (
     <div className="Profile">
       <div className={styles.topnav}>
@@ -56,34 +25,25 @@ export default function Profile({logout}) {
         <Link href="/Profile"><a>Profile</a></Link>
         <Link href="/MakePost"><a>Make A Post</a></Link>
       </div>
-      <div id="title">
-        <h1>Profile Page</h1>
-      </div>
-      <div id="profile_content">
-        <div className="row">
-          <div className="col-4">
-            {/*<img id="profile_page_pic" src={ user.profile_pic } width="250" height="250" alt={ user.username }/>*/}
+      <div className={styles.main}>
+        <div id="title">
+          <h1>Profile Page</h1>
+        </div>
+        <div id="profile_content">
+          <div className="row">
+            <div className="col-5"> 
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item"><span>Display name: user.username</span></li>
+                <li className="list-group-item"><span>Email: user.email</span></li>
+                <li className="list-group-item">
+                  <button className="btn btn-lrg btn-danger">Delete Account</button>
+                </li>
+              </ul>
+            </div>
+            <div className="col-1"></div>
           </div>
-          <div className="col-2"></div>
-          <div className="col-5" id="right_profile_div">
-            <ul className="list-group list-group-flush">
-              <li className="list-group-item"><span>Display name: {/* user.username */}</span></li>
-              <li className="list-group-item"><span>Email: {/* user.email */}</span></li>
-              <li className="list-group-item">
-                <button onClick={goToEdit} className="btn btn-lrg btn-warning">Edit</button>
-              </li>
-              <li className="list-group-item">
-                <button onClick={handleOpen} className="btn btn-lrg btn-danger">Delete Account</button>
-              </li>
-              <li className="list-group-item">
-                <button onClick={dumpHistory} className="btn btn-lrg btn-danger">Clear Your History</button>
-              </li>
-            </ul>
-          </div>
-          <div className="col-1"></div>
         </div>
       </div>
-      {/* displayHistory.history && <UserHistory HistoryItems={displayHistory.history.rows/>*/}
     </div>
   )
 }

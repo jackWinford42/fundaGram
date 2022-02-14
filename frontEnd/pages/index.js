@@ -1,8 +1,12 @@
 import Head from "next/head"
 import Link from "next/link"
+import { Button } from "react-bootstrap"
 import styles from '../styles/Home.module.css'
+import { useRouter } from "next/router";
 
 export default function Landing() {
+  const router = useRouter()
+
   return (
     <div className={styles.container}>
       <Head>
@@ -20,17 +24,15 @@ export default function Landing() {
           Welcome to fundaGram!
         </h1>
         <div>
-          <button>
-            <Link href="/Login"><a>Log In</a></Link>
-          </button>
-          <button>
-            <Link href="/Signup"><a>Sign Up</a></Link>
-          </button>
+          <Button onClick={() => router.push('/Login')}>
+            <a>Log In</a>
+          </Button>
+          <Button onClick={() => router.push('/Signup')}>
+            <a>Sign Up</a>
+          </Button>
         </div>
       </main>
 
-      <footer className={styles.footer}>
-      </footer>
     </div>
   )
 }

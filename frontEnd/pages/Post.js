@@ -10,7 +10,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { v4 as uuidv4 } from 'uuid';
 
 export default function Post({data, setUpdate, update}) {
-  console.log(data);
   const [liked, setLiked] = useState(false);
   const [formData, setFormData] = useState({
     comment:""
@@ -25,7 +24,6 @@ export default function Post({data, setUpdate, update}) {
     evt.preventDefault();
     await Api.writeComment({comment: formData.comment, id: data._id, prevComments: data.comments}) 
     setUpdate(!update);
-    console.log("ADDED A COMMENT");
   }
 
   function handleChange(evt) {
@@ -34,16 +32,13 @@ export default function Post({data, setUpdate, update}) {
   }
 
   async function like() {
-    console.log("liked/unliked post")
     const newNum = liked ? data.likes - 1 : data.likes + 1;
-    console.log(newNum)
     await Api.likePost({id: data._id, newNum: newNum});
     setUpdate(!update);
-    console.log("did a like increment");
   }
 
   return (
-    <Card className="Post">
+    <Card className={styles.post}>
       <Card.Img alt={data.comment} src={data.url} width="400" height="400"/>
       <Card.Body>
         <span>{data.description}</span><br></br>

@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import Api from "./Api.js";
 import { useRouter } from "next/router";
-//import "./formStyles.css"
+import { Button, Card } from "react-bootstrap";
+import styles from '../styles/Home.module.css'
 
-/** Sign up form for getting the username, password, first name,
- * last name, and email of a new user. On submit a callback function
+/** Sign up form for getting the username, password, 
+ * email, and profile picture of a new user. On submit a callback function
  * from app is called to register the user with the values from the
  * form.
  */
 export default function Signup({ signup }) {
-  console.debug("Sign up form");
   const router = useRouter()
 
   const [formData, setFormData] = useState({
@@ -25,14 +25,7 @@ export default function Signup({ signup }) {
     //send the form data to app's signup function
     const res = await Api.signup(formData)
 
-    console.log(res);
     router.push('/Home');
-    if (res.worked) {
-      router.push('/Home');
-    } else {
-      console.log(res);
-      setErrors(res.errors);
-    }
   }
 
   // Update form data to reflect change in form fields
@@ -42,52 +35,47 @@ export default function Signup({ signup }) {
   }
 
   return (
-      <div className="SignupForm col-md-6 col-lg-4">
-        <div className="authFormCard">
-          <div>
-            <form className="form-inline" onSubmit={handleSubmit}>
-              <label>Username:</label>
-              <input
-                className="form-control form-control-md"
-                name="username"
-                placeholder="username"
-                value={formData.username}
-                onChange={handleChange}
-              />
-              <label>Password:</label>
-              <input
-                className="form-control form-control-md"
-                type="password"
-                name="password"
-                placeholder="password"
-                value={formData.password}
-                onChange={handleChange}
-              />
-              <label>Email:</label>
-              <input
-                className="form-control form-control-md"
-                name="email"
-                placeholder="email"
-                value={formData.email}
-                onChange={handleChange}
-              />
-              <label>Profile Picture Url:</label>
-              <input
-                className="form-control form-control-md"
-                id="bottomInput"
-                name="profile_pic"
-                placeholder="url"
-                value={formData.profile_pic}
-                onChange={handleChange}
-              />
-              <button className="authButton" onClick={handleSubmit}>
-                sign up
-              </button>
-            </form>
-            {/*errors.length > 0 && 
-            errors.map(error => <Alert color="danger" key={error}>{error}</Alert>)*/}
-          </div>
-        </div>
+      <div className={styles.center}>
+        <Card className={styles.authForm}>
+          <form className="form-inline" onSubmit={handleSubmit}>
+            <label>Username:</label>
+            <input
+              className="form-control form-control-md"
+              name="username"
+              placeholder="username"
+              value={formData.username}
+              onChange={handleChange}
+            />
+            <label>Password:</label>
+            <input
+              className="form-control form-control-md"
+              type="password"
+              name="password"
+              placeholder="password"
+              value={formData.password}
+              onChange={handleChange}
+            />
+            <label>Email:</label>
+            <input
+              className="form-control form-control-md"
+              name="email"
+              placeholder="email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+            <label>Profile Picture Url:</label>
+            <input
+              className="form-control form-control-md"
+              name="profile_pic"
+              placeholder="url"
+              value={formData.profile_pic}
+              onChange={handleChange}
+            />
+            <Button onClick={handleSubmit}>
+              sign up
+            </Button>
+          </form>
+        </Card>
       </div>
   );
 }

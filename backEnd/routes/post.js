@@ -72,8 +72,6 @@ router.post("/comment", async function (req, res, next) {
 
     const result = await postsCollection.updateOne(filter, updateDoc);
 
-    console.log(result.matchedCount)
-    console.log(result.modifiedCount);
     return res.status(201).json({ });
   } catch (err) {
     return next(err);
@@ -103,8 +101,6 @@ router.post("/like", async function (req, res, next) {
 
     const result = await postsCollection.updateOne(filter, updateDoc);
 
-    console.log(result.matchedCount)
-    console.log(result.modifiedCount);
     return res.status(201).json({ });
   } catch (err) {
     return next(err);
